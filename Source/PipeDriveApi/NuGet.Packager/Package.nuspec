@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>PipeDriveApi</id>
+    <version>1.0.5</version>
+    <title>PipeDrive Api</title>
+    <authors>Casper Jensen</authors>
+    <owners>Worklife Barometer Aps</owners>
+    <description>
+      .Net api for interacting with the PipeDrive API. Fully Async and support for custom fields and API Rate limiting.
+    </description>
+    <releaseNotes>
+    </releaseNotes>
+    <summary>
+      .Net api for interacting with the PipeDrive API.
+    </summary>
+    <language>en-US</language>
+    <projectUrl>https://nuget.org/packages/PipeDriveApi</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright Worklife Barometer 2016</copyright>
+    <dependencies>
+        <group targetFramework="net461">
+          <dependency id="Newtonsoft.Json" version="9.0.1" />
+          <dependency id="RateLimiter" version="1.0.0" />
+          <dependency id="RestSharp" version="105.2.3" />
+        </group>
+    </dependencies>
+    <references></references>
+    <tags></tags>
+  </metadata>
+  <files>
+    <file src="lib\" target="lib" />
+    <file src="tools\" target="tools" />
+    <file src="content\" target="content" />
+  </files>
+</package>
