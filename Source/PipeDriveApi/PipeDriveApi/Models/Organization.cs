@@ -10,7 +10,7 @@ namespace PipeDriveApi
     {
         public int Id { get; set; }
         public int CompanyId { get; set; }
-        public int OwnerId { get; set; }
+        public Owner OwnerId { get; set; }
         public string Name { get; set; }
         public int OpenDealsCount { get; set; }
         public int RelatedOpenDealsCount { get; set; }
