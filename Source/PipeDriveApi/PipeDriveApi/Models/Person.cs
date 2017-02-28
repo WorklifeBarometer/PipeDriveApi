@@ -8,6 +8,8 @@ namespace PipeDriveApi
 {
     public class Person : BaseEntity
     {
+        public int Id { get; set; }
+        public int CompanyId { get; set; }
         public string Name { get; set; }
         public DateTime? AddTime { get; set; }
         public Owner OwnerId { get; set; }
@@ -15,6 +17,8 @@ namespace PipeDriveApi
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int OpenDealsCount { get; set; }
+        public int RelatedOpenDealsCount { get; set; }
+        public int ClosedDealsCount { get; set; }
         public int RelatedClosedDealsCount { get; set; }
         public int ParticipantOpenDealsCount { get; set; }
         public int ParticipantClosedDealsCount { get; set; }
@@ -28,6 +32,8 @@ namespace PipeDriveApi
         public int FollowersCount { get; set; }
         public int WonDealsCount { get; set; }
         public int RelatedWonDealsCount { get; set; }
+        public int LostDealsCount { get; set; }
+        public int RelatedLostDealsCount { get; set; }
         public bool ActiveFlag { get; set; }
         public List<Phone> Phone { get; set; }
         public List<Email> Email { get; set; }
@@ -42,6 +48,8 @@ namespace PipeDriveApi
         public DateTime? LastActivityDate { get; set; }
         public DateTime? LastIncomingMailTime { get; set; }
         public DateTime? LastOutgoingMailTime { get; set; }
+        public string OrgName { get; set; }
+        public string OwnerName { get; set; }
         public string CcEmail { get; set; }
     }
 }
