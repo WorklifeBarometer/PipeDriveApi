@@ -55,6 +55,7 @@
     <Compile Include="CustomFieldAttribute.cs" />
     <Compile Include="EntityServices\ActivityEntityService.cs" />
     <Compile Include="EntityServices\EntityServiceBase.cs" />
+    <Compile Include="EntityServices\NoteEntityService.cs" />
     <Compile Include="EntityServices\PagingEntityService.cs" />
     <Compile Include="EntityServices\OrganizationEntityService.cs" />
     <Compile Include="EntityServices\DealEntityService.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Models\DealProduct.cs" />
     <Compile Include="Models\ListResult.cs" />
     <Compile Include="Models\Activity.cs" />
+    <Compile Include="Models\Note.cs" />
     <Compile Include="Models\PersonId.cs" />
     <Compile Include="Models\PaginationInfo.cs" />
     <Compile Include="Models\Organization.cs" />

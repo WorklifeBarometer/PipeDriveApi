@@ -11,19 +11,30 @@ using System.Threading.Tasks;
 
 namespace PipeDriveApi
 {
-    public class PipeDriveClient : PipeDriveClient<Person, Organization, Deal, Product>
+    public class PipeDriveClient : PipeDriveClient<Person, Organization, Deal, Product, Activity, Note>
     {
         public PipeDriveClient(string apiKey) : base(apiKey)
         {
         }
     }
 
-
-    public class PipeDriveClient<TPerson, TOrganization, TDeal, TProduct> : IPipeDriveClient
+    public class PipeDriveClient<TPerson, TOrganization, TDeal, TProduct> 
+        : PipeDriveClient<TPerson, TOrganization, TDeal, TProduct, Activity, Note>
         where TPerson : Person
         where TOrganization : Organization
         where TDeal : Deal
         where TProduct : Product
+    {
+        public PipeDriveClient(string apiKey) : base(apiKey) { }
+    }
+
+    public class PipeDriveClient<TPerson, TOrganization, TDeal, TProduct, TActivity, TNote> : IPipeDriveClient
+        where TPerson : Person
+        where TOrganization : Organization
+        where TDeal : Deal
+        where TProduct : Product
+        where TActivity : Activity
+        where TNote : Note
     {
         private readonly RestClient _Client;
         private readonly string _ApiToken;
@@ -47,7 +58,8 @@ namespace PipeDriveApi
             Organizations = new OrganizationEntityService<TOrganization>(this);
             Deals = new DealEntityService<TDeal>(this);
             Products = new ProductEntityService<TProduct>(this);
-            Activities = new ActivityEntityService(this);
+            Activities = new ActivityEntityService<TActivity>(this);
+            Notes = new NoteEntityService<TNote>(this);
         }
 
         public async Task ExecuteRequestAsync(IRestRequest request)
@@ -99,7 +111,7 @@ namespace PipeDriveApi
         public OrganizationEntityService<TOrganization> Organizations { get; private set; }
         public DealEntityService<TDeal> Deals { get; private set; }
         public ProductEntityService<TProduct> Products { get; private set; }
-        public ActivityEntityService Activities { get; private set; }
-
+        public ActivityEntityService<TActivity> Activities { get; private set; }
+        public NoteEntityService<TNote> Notes { get; private set; }
     }
 }
