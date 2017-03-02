@@ -19,7 +19,7 @@ namespace PipeDriveApi.EntityServices
         public async Task<ListResult<TEntity>> GetAsync(int start = 0, int limit = 100, Sort sort = null)
         {
             var request = new RestRequest(_Resource, Method.GET);
-            return await GetAsync(start, limit, sort);
+            return await GetAsync(request, start, limit, sort);
         }
         public async Task<ListResult<TEntity>> GetAsync(IRestRequest request, int start = 0, int limit = 100, Sort sort = null)
         {
