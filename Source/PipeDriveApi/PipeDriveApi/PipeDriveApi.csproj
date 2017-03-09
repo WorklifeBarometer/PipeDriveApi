@@ -82,6 +82,8 @@
     <Compile Include="Models\PaginationInfo.cs" />
     <Compile Include="Models\Organization.cs" />
     <Compile Include="Models\Deal.cs" />
+    <Compile Include="Models\Pictures.cs" />
+    <Compile Include="Models\PictureId.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Sort.cs" />
     <Compile Include="IPipeDriveClient.cs" />

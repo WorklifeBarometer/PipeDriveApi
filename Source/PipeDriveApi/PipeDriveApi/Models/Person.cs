@@ -40,7 +40,7 @@ namespace PipeDriveApi
         public char FirstChar { get; set; }
         public DateTime? UpdateTime { get; set; }
         public string VisibleTo { get; set; }
-        public string PictureId { get; set; }
+        public PictureId PictureId { get; set; }
         public DateTime? NextActivityDate { get; set; }
         public DateTime? NextActivityTime { get; set; }
         public int? NextActivityId { get; set; }
