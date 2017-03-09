@@ -67,9 +67,7 @@ namespace PipeDriveApi.Serializer
                 NullValueHandling = NullValueHandling.Ignore,
                 ContractResolver = new PipeDriveContractResolver(),
                 DateParseHandling = DateParseHandling.DateTime,
-                DateTimeZoneHandling = DateTimeZoneHandling.Local,
-                DateFormatString = "yyyy-MM-dd HH:mm:ss"
-                
+                DateTimeZoneHandling = DateTimeZoneHandling.Local
             });
         }).Value;
     }

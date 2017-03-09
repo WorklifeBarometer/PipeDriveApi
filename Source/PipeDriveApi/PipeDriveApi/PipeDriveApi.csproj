@@ -99,6 +99,7 @@
     <Compile Include="PipeDriveClient.cs" />
     <Compile Include="PipeDriveException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serializer\ZerosIsoDateTimeConverter.cs" />
     <Compile Include="Serializer\PipeDriveContractResolver.cs" />
     <Compile Include="Serializer\PipeDriveJsonSerializer.cs" />
   </ItemGroup>
