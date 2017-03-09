@@ -34,7 +34,7 @@ namespace PipeDriveApi.EntityServices
                 PaginatedPipeDriveResponse<T>, 
                 List<T>>(request);
 
-            return new ListResult<T>(response.Data, response.AdditionalData.Pagination);
+            return new ListResult<T>(response.Data ?? new List<T>(), response.AdditionalData.Pagination);
         }
 
         public async Task<IReadOnlyList<T>> GetAllForOrganizationAsync(
