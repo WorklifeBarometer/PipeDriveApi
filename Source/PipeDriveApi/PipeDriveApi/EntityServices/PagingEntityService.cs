@@ -16,12 +16,12 @@ namespace PipeDriveApi.EntityServices
         {
             _Resource = resource;
         }
-        public async Task<ListResult<TEntity>> GetAsync(int start = 0, int limit = 100, Sort sort = null)
+        public virtual async Task<ListResult<TEntity>> GetAsync(int start = 0, int limit = 100, Sort sort = null)
         {
             var request = new RestRequest(_Resource, Method.GET);
             return await GetAsync(request, start, limit, sort);
         }
-        public async Task<ListResult<TEntity>> GetAsync(IRestRequest request, int start = 0, int limit = 100, Sort sort = null)
+        public virtual async Task<ListResult<TEntity>> GetAsync(IRestRequest request, int start = 0, int limit = 100, Sort sort = null)
         {
             request.SetQueryParameter("start", start.ToString());
             request.SetQueryParameter("limit", limit.ToString());
@@ -32,12 +32,12 @@ namespace PipeDriveApi.EntityServices
             return new ListResult<TEntity>(response.Data, response.AdditionalData.Pagination);
         }
 
-        public async Task<IReadOnlyList<TEntity>> GetAllAsync(Sort sort = null)
+        public virtual async Task<IReadOnlyList<TEntity>> GetAllAsync(Sort sort = null)
         {
             var request = new RestRequest(_Resource, Method.GET);
             return await GetAllAsync(request, sort);
         }
-        public async Task<IReadOnlyList<TEntity>> GetAllAsync(IRestRequest request, Sort sort = null)
+        public virtual async Task<IReadOnlyList<TEntity>> GetAllAsync(IRestRequest request, Sort sort = null)
         {
             var combinedList = new List<TEntity>();
             int start = 0, limit = 1000;
