@@ -4,6 +4,7 @@ namespace PipeDriveApi
 {
     public class PersonId
     {
+        public int Id { get { return Value; } set { Value = value; } }
         public int Value { get; set; }
         public string Name { get; set; }
         public List<Email> Email { get; set; }

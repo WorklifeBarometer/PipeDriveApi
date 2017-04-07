@@ -1,29 +1,13 @@
-﻿using PipeDriveApi.EntityServices;
-using PipeDriveApi.Serializer;
+﻿using PipeDriveApi.Serializer;
 using RateLimiter;
 using RestSharp;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PipeDriveApi
 {
-    public class PipeDriveClient : PipeDriveClient<Person, Organization, Deal, Product>
-    {
-        public PipeDriveClient(string apiKey) : base(apiKey)
-        {
-        }
-    }
-
-
-    public class PipeDriveClient<TPerson, TOrganization, TDeal, TProduct> : IPipeDriveClient
-        where TPerson : Person
-        where TOrganization : Organization
-        where TDeal : Deal
-        where TProduct : Product
+    public class PipeDriveClient : IPipeDriveClient
     {
         private readonly RestClient _Client;
         private readonly string _ApiToken;
@@ -42,12 +26,6 @@ namespace PipeDriveApi
 
             // Fly under the radar by doing only 99 requests per 10 seconds
             _TimeContraint = TimeLimiter.GetFromMaxCountByInterval(99, TimeSpan.FromSeconds(10));
-
-            Persons = new PersonEntityService<TPerson>(this);
-            Organizations = new OrganizationEntityService<TOrganization>(this);
-            Deals = new DealEntityService<TDeal>(this);
-            Products = new ProductEntityService<TProduct>(this);
-            Activities = new ActivityEntityService(this);
         }
 
         public async Task ExecuteRequestAsync(IRestRequest request)
@@ -93,13 +71,5 @@ namespace PipeDriveApi
                 }
             });
         }
-
-
-        public PersonEntityService<TPerson> Persons { get; private set; }
-        public OrganizationEntityService<TOrganization> Organizations { get; private set; }
-        public DealEntityService<TDeal> Deals { get; private set; }
-        public ProductEntityService<TProduct> Products { get; private set; }
-        public ActivityEntityService Activities { get; private set; }
-
     }
 }
